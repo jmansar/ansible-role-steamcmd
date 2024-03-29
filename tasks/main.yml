@@ -7,7 +7,7 @@
   include_tasks: user.yml
   when: steamcmd_create_user
 
-- name: Include setup tasks
-  include_tasks: setup.yml
+- name: Import setup tasks
+  import_tasks: setup.yml
   become: yes
   become_user: '{{ steamcmd_user }}'
