@@ -1,8 +1,13 @@
 ---
 
-- include: packages.yml
-- include: user.yml
+- name: Import packages tasks
+  import_tasks: packages.yml
+
+- name: Include user tasks
+  include_tasks: user.yml
   when: steamcmd_create_user
-- include: setup.yml
+
+- name: Include setup tasks
+  include_tasks: setup.yml
   become: yes
   become_user: '{{ steamcmd_user }}'
